@@ -32,11 +32,11 @@ public class Main {
 
                 }while (key.length() > plainText.length());
 
-                key = key.toUpperCase();
+                key = key.replaceAll("\\s+", "").toUpperCase();
 
                 Vigenere phaseOne = new Vigenere();
 
-                String phaseOneCipher = phaseOne.applyPhaseOne(plainText, key);
+                String phaseOneCipher = phaseOne.encryptPhaseOne(plainText, key);
 
                 System.out.println("********************* Encryption *********************");
                 System.out.println("Phase: Vigenere Cipher");
@@ -46,7 +46,7 @@ public class Main {
 
                 ColumnarTransposition columnarTransposition = new ColumnarTransposition();
 
-                String phaseTwoCipher = columnarTransposition.applyPhaseTwo(phaseOneCipher, key);
+                String phaseTwoCipher = columnarTransposition.encryptPhaseTwo(phaseOneCipher, key);
 
                 System.out.println("");
                 System.out.println("");
@@ -60,6 +60,50 @@ public class Main {
 
 
             }else if(option == 2){
+                System.out.println("Enter the cipher text message: ");
+                String cipherText = scanner.nextLine();
+
+                cipherText = cipherText.replaceAll("\\s+", "").toUpperCase();
+
+
+                String key;
+                do {
+                    System.out.println("Enter the key: ");
+                    key = scanner.nextLine();
+
+                    if(key.length() > cipherText.length()){
+                        System.out.println("Key length cannot be longer than ciphertext length");
+                    }
+
+                }while (key.length() > cipherText.length());
+
+                key = key.replaceAll("\\s+", "").toUpperCase();
+
+                ColumnarTransposition columnarTransposition = new ColumnarTransposition();
+
+                String phaseOneDecrypt = columnarTransposition.decryptPhaseOne(cipherText, key);
+
+                System.out.println("********************* Decryption *********************");
+                System.out.println("Phase: Columnar Transposition Cipher");
+                System.out.println(">> Input: " + cipherText);
+                System.out.println(">> Key: " + key);
+                System.out.println(">> Output: " + phaseOneDecrypt);
+
+
+                Vigenere vigenere = new Vigenere();
+
+
+                String phaseTwoDecrypt = vigenere.decryptPhaseTwo(phaseOneDecrypt, key);
+
+
+                System.out.println("");
+                System.out.println("");
+                System.out.println("Phase: Columnar Transposition Cipher");
+                System.out.println(">> Input: " + phaseOneDecrypt);
+                System.out.println(">> Key: " + key);
+                System.out.println(">> Output: " + phaseTwoDecrypt);
+                System.out.println("*****************************************************");
+                System.out.println("");
 
             }else if(option == 3){
 
