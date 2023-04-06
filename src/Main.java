@@ -20,7 +20,6 @@ public class Main {
 
                 plainText = plainText.replaceAll("\\s+", "").toUpperCase();
 
-
                 String key;
                 do {
                     System.out.println("Enter the key: ");
@@ -98,7 +97,7 @@ public class Main {
 
                 System.out.println("");
                 System.out.println("");
-                System.out.println("Phase: Columnar Transposition Cipher");
+                System.out.println("Phase: Vigenere Cipher");
                 System.out.println(">> Input: " + phaseOneDecrypt);
                 System.out.println(">> Key: " + key);
                 System.out.println(">> Output: " + phaseTwoDecrypt);
@@ -106,9 +105,9 @@ public class Main {
                 System.out.println("");
 
             }else if(option == 3){
-
+                System.out.println("Exiting...");
             }else{
-
+                System.out.println("Invalid option");
             }
 
         }while (option != 3);
