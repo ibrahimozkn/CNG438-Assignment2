@@ -21,8 +21,6 @@ public class Vigenere {
             int plainTextIndex = (plainTextArray[i] - 'A');
             int keyIndex = (keyArray[keyCounter] - 'A');
 
-            System.out.print(keyArray[keyCounter]);
-
 
             cipherText += table[keyIndex][plainTextIndex];
 
@@ -35,11 +33,6 @@ public class Vigenere {
 
 
         }
-
-        System.out.println(cipherText);
-
-
-
 
         return cipherText;
     }

@@ -75,15 +75,14 @@ public class ColumnarTransposition {
         for(int column = 0; column < key.length(); column++){
             int col = keyList.indexOf(sortedKeysList.get(column));
 
-            keyList.set(col, '0');
-
             for(int r = 0; r < row; r++){
                 if(index > cipherText.length() - 1) {
                     orderTable[r][col] = '0';
                 }else {
                     orderTable[r][col] = cipherArray[index];
-                    index++;
+
                 }
+                index++;
             }
         }
 
@@ -91,7 +90,6 @@ public class ColumnarTransposition {
             for(int c = 0; c < key.length(); c++){
                 plainText += orderTable[r][c];
             }
-            System.out.println();
         }
 
 

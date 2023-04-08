@@ -2,6 +2,10 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        Menu();
+    }
+
+    public static void Menu(){
         Scanner scanner = new Scanner(System.in);
 
         int option;
@@ -37,6 +41,7 @@ public class Main {
 
                 String phaseOneCipher = phaseOne.encryptPhaseOne(plainText, key);
 
+                System.out.println();
                 System.out.println("********************* Encryption *********************");
                 System.out.println("Phase: Vigenere Cipher");
                 System.out.println(">> Input: " + plainText);
@@ -82,6 +87,7 @@ public class Main {
 
                 String phaseOneDecrypt = columnarTransposition.decryptPhaseOne(cipherText, key);
 
+                System.out.println();
                 System.out.println("********************* Decryption *********************");
                 System.out.println("Phase: Columnar Transposition Cipher");
                 System.out.println(">> Input: " + cipherText);
@@ -111,7 +117,6 @@ public class Main {
             }
 
         }while (option != 3);
-
-
     }
+
 }
